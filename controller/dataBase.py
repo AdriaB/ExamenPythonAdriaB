@@ -15,7 +15,7 @@ class DataBase:
         __author__ = "Aram Miquel"
         print("Listing Apps ordered by our ranking...")
         freeAppList = list()
-        with open(self.pathToDb, "r") as f:
+        with open(self.rutafitxer, "r") as f:
             for line in f:
                 freeAppList.append(line)
         appUnorderedList = freeAppList
@@ -57,6 +57,18 @@ class DataBase:
             print("Error! No se ha podido encontrar el fichero de aplicaciones!")
 
         return added
+
+    def printOrderedList(self, orderedList):
+        maxScore = 0;
+        for app in orderedList:
+            if app[1] > maxScore:
+                maxScore = app[1]
+        for app in orderedList:
+            if app[1] == maxScore:
+                print(app[0].getName() + " with score " + str(app[1]))
+                orderedList.remove(app)
+        if orderedList:
+            self.printOrderedList(orderedList)
 
     def sumarDescarga(self, nombre):
         """Suma una descarga a la aplicación con ese nombre. Devuelve True o False en funcion de si se ha encontrado (y modificado) o no"""
