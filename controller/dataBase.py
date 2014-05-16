@@ -24,7 +24,7 @@ class DataBase:
                     exists = True
             if not exists:
                 with open(self.rutafitxer, 'a') as f:
-                    f.write(aplicacion.nombre+";"+aplicacion.proveedor+";"+aplicacion.fecha+";"+str(aplicacion.precio)+";"+str(aplicacion.descargas)+";"+str(aplicacion.puntuaciones)+";"+str(aplicacion.puntuacion)+";"+str(aplicacion.comentarios)+";\n")
+                    f.write(aplicacion.nombre+";"+aplicacion.proveedor+";"+aplicacion.fecha+";"+str(aplicacion.precio)+";"+str(aplicacion.descargas)+";"+str(aplicacion.puntuaciones)+";"+str(aplicacion.puntuacion)+";"+str(aplicacion.comentarios)+"\n")
                     added = True
         else:
             print("Error! No se ha podido encontrar el fichero de aplicaciones!")
