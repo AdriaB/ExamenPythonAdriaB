@@ -23,11 +23,16 @@ while True:
         nombre = input("Escribe el nombre de la aplicación a modificar: ")
         modify = d.sumarDescarga(nombre)
         if modify:
+            print("Se ha añadido una descarga correctamente")
+        else:
+            print("No se ha podido añadir una descarga. Compruebe que ha escrito el nombre correctamente")
+    elif opcion == "5":
+        nombre = input("Escribe el nombre de la aplicación a modificar: ")
+        modify = d.sumarComentario(nombre)
+        if modify:
             print("Se ha añadido un comentario correctamente")
         else:
             print("No se ha podido añadir un comentario. Compruebe que ha escrito el nombre correctamente")
-    elif opcion == "5":
-        pass
     elif opcion == "6":
         print("Has salido correctamente")
         break

@@ -51,3 +51,24 @@ class DataBase:
         else:
             print("Error! No se ha podido encontrar el fichero de aplicaciones!")
         return trobat
+
+    def sumarComentario(self, nombre):
+        """Suma un comentario a la aplicación con ese nombre. Devuelve True o False en funcion de si se ha encontrado (y modificado) o no"""
+        if os.path.isfile(self.rutafitxer):
+            file = open(self.rutafitxer, 'r')
+            llista = file.readlines()
+            file.close()
+            trobat = False
+            with open(self.rutafitxer, 'w') as file:
+                for linia in llista:
+                    if linia.split(";")[0] != nombre:
+                        file.write(linia)
+                    else:
+                        linia1 = linia.split(";")[:-1]
+                        comentarios = int(linia.split(";")[7])
+                        resultat = linia1[0]+";"+linia1[1]+";"+linia1[2]+";"+linia1[3]+";"+linia1[4]+";"+linia1[5]+";"+linia1[6]+";"+str(comentarios+1)+";\n"
+                        file.write(resultat)
+                        trobat = True
+        else:
+            print("Error! No se ha podido encontrar el fichero de aplicaciones!")
+        return trobat
