@@ -1,6 +1,6 @@
 __author__ = 'adria'
 
-class Aaplicacion:
+class Aplicacion:
     def __init__(self, nombre, proveedor, fecha, precio, descargas, puntuaciones, puntuacion, comentarios):
         self.nombre = nombre
         self.proveedor = proveedor
