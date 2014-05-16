@@ -43,9 +43,9 @@ class DataBase:
                     if linia.split(";")[0] != nombre:
                         file.write(linia)
                     else:
-                        linia1 = linia.split(";")[:-1]
+                        linia1 = linia.split(";")
                         descargues = int(linia.split(";")[4])
-                        resultat = linia1[0]+";"+linia1[1]+";"+linia1[2]+";"+linia1[3]+";"+str(descargues+1)+";"+linia1[5]+";"+linia1[6]+";"+linia1[7]+";\n"
+                        resultat = linia1[0]+";"+linia1[1]+";"+linia1[2]+";"+linia1[3]+";"+str(descargues+1)+";"+linia1[5]+";"+linia1[6]+";"+linia1[7]
                         file.write(resultat)
                         trobat = True
         else:
@@ -64,9 +64,10 @@ class DataBase:
                     if linia.split(";")[0] != nombre:
                         file.write(linia)
                     else:
-                        linia1 = linia.split(";")[:-1]
-                        comentarios = int(linia.split(";")[7])
-                        resultat = linia1[0]+";"+linia1[1]+";"+linia1[2]+";"+linia1[3]+";"+linia1[4]+";"+linia1[5]+";"+linia1[6]+";"+str(comentarios+1)+";\n"
+                        linia1 = linia.split(";")
+                        comentarios = linia.split(";")[7]
+                        comentarios = int(comentarios)
+                        resultat = linia1[0]+";"+linia1[1]+";"+linia1[2]+";"+linia1[3]+";"+linia1[4]+";"+linia1[5]+";"+linia1[6]+";"+str(comentarios+1)+"\n"
                         file.write(resultat)
                         trobat = True
         else:
