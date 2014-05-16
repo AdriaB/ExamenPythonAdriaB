@@ -9,6 +9,7 @@ while True:
     print("3. Modificar datos identificacion de una aplicación")
     print("4. Sumar una descarga")
     print("5. Sumar un comentario")
+    print("6. Salir")
     opcion = input("Introduce una opcion: ")
     d = DataBase()
     if opcion == "1":
@@ -27,3 +28,8 @@ while True:
             print("No se ha podido añadir un comentario. Compruebe que ha escrito el nombre correctamente")
     elif opcion == "5":
         pass
+    elif opcion == "6":
+        print("Has salido correctamente")
+        break
+    else:
+        print("Opcion incorrecta")
