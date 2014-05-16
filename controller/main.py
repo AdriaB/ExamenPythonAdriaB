@@ -1,6 +1,8 @@
 __author__ = 'adria'
 
 from dataBase import *
+sys.path.insert(0, '../model')
+from aplicacion import *
 
 while True:
     print("___ Menú: ___")
@@ -13,9 +15,26 @@ while True:
     opcion = input("Introduce una opcion: ")
     d = DataBase()
     if opcion == "1":
-        pass
+        pago=input("Voleu que es mostrin les applicacions de pago? (S/N)")
+        if pago == "S":
+            d.listApps(1)
+        elif pago == "N":
+            d.listApps(0)
+        else:
+            print("Opcio incorrecta")
+
     elif opcion == "2":
         print("Escribe los datos de la aplicación:")
+        nombre=input("Nombre app:")
+        proveedor=input("Nombre proveedor:")
+        fecha=input("Fecha app:")
+        precio=input("Precio app:")
+        descargas=input("Descargas app:")
+        puntuaciones=input("Puntuaciones app:")
+        puntuacion=input("Puntuacion app:")
+        comentarios=input("Nº comentarios app:")
+        a = Aplicacion(nombre, proveedor, fecha, precio, descargas, puntuaciones, puntuacion, comentarios)
+        d.afegeixAplicacio(a)
         pass
     elif opcion == "3":
         pass

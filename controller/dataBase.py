@@ -11,6 +11,33 @@ class DataBase:
         """Iniciamos la classe con al ruta de la base de datos"""
         self.rutafitxer = rutafitxer
 
+    def listApps(self, type):
+        __author__ = "Aram Miquel"
+        print("Listing Apps ordered by our ranking...")
+        freeAppList = list()
+        with open(self.pathToDb, "r") as f:
+            for line in f:
+                freeAppList.append(line)
+        appUnorderedList = freeAppList
+        appOrderedList = list()
+        for appString in appUnorderedList:
+            name, developer, date, price, numberDownloads, numberScores, score, numberComments = appString.split(";")
+            app = Aplicacion(name, developer, date, int(price), numberDownloads, numberScores, score, numberComments)
+            if type == 0:
+                if app.getPrice() == 0:
+                    appScore = ((float(app.getNumberDownloads()) * 0.6) + (float(app.getScore()) * 0.25) + (float(app.getNumberComments()) * 0.15))
+                    appToList = (app, appScore)
+                    appOrderedList.append(appToList)
+            elif type == 1:
+                if app.getPrice() > 0:
+                    appScore = ((float(app.getNumberDownloads()) * 0.6) + (float(app.getScore()) * 0.25) + (float(app.getNumberComments()) * 0.15))
+                    appToList = (app, appScore)
+                    appOrderedList.append(appToList)
+            else:
+                print("Internal error. You should not be here.")
+        self.printOrderedList(appOrderedList)
+
+
     def afegeixAplicacio(self, aplicacion):
         """Añade una aplicación al fichero de aplicaciones"""
         added = False
