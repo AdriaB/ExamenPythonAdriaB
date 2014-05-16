@@ -59,6 +59,7 @@ class DataBase:
         return added
 
     def printOrderedList(self, orderedList):
+        __author__ = "Aram Miquel"
         maxScore = 0;
         for app in orderedList:
             if app[1] > maxScore:

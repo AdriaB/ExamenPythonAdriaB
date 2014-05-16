@@ -11,6 +11,7 @@ class Aplicacion:
         self.puntuacion = puntuacion
         self.comentarios = comentarios
 
+    # Els següents metodes son de l'Aram Miquel
     def getName(self):
         return self.nombre
     def getDeveloper(self):
